@@ -1,0 +1,17 @@
+name: Semgrep Scan
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  semgrep:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: returntocorp/semgrep-action@v1
+        with:
+          config: auto
+        env:
+          SEMGREP_APP_TOKEN: a27fcb11214757610ef9582cc2bc7e17c9275bfbff05090b3e8f74f77232a5b3
